@@ -29,7 +29,9 @@ async function traduzir() {
 
     let resposta = await fetch(endereco)
 
-    console.log(resposta)
+    let dados = await resposta.json() //convertendo a resposta em formato json
+
+    console.log(dados)
 
 
 
