@@ -25,8 +25,8 @@ let inputTexto = document.querySelector("#input-texto")
 
 function traduzir() {
     
-
     let endereco = "https://api.mymemory.translated.net/get?q=" + inputTexto.value + "&langpair=pt-BR|en"
+
 
 
 }
