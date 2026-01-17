@@ -24,11 +24,11 @@ Fetch -> ferramenta do javascript para entrar em contato com um servidor
 let inputTexto = document.querySelector("#input-texto")
 
 async function traduzir() {
-    
+    //endereço do servidor com o texto que quero traduzir
     let endereco = "https://api.mymemory.translated.net/get?q=" + inputTexto.value + "&langpair=pt-BR|en"
-
+    //resposta do servidor
     let resposta = await fetch(endereco)
-
+    //conversão da resposta para JSON
     let dados = await resposta.json() //convertendo a resposta em formato json
 
     console.log(dados)
