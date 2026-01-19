@@ -3,8 +3,14 @@
 [x] Pegar o texto que o usuário digitou;
 [x] Mandar para o servidor traduzir;
 [x] Receber a resposta do servidor (tradução); 
-[] Colocar o texto na tela.
+[x] Colocar o texto na tela;
+[x] Escolher o idioma.
 
+   Segundo passo:
+   [] Saber quando o botão do microfone for clicado;
+   [] IA - detectar a voz e pegar a transcrição;
+   [] Traduzir o que foi falado.
+    
 Endereço da API de Tradução mymemory traslation
 
 https://api.mymemory.translated.net/get?q=Hello World!&langpair=en|it
