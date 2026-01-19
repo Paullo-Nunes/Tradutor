@@ -10,7 +10,7 @@
    [] Saber quando o botão do microfone for clicado;
    [] IA - detectar a voz e pegar a transcrição;
    [] Traduzir o que foi falado.
-    
+
 Endereço da API de Tradução mymemory traslation
 
 https://api.mymemory.translated.net/get?q=Hello World!&langpair=en|it
@@ -41,6 +41,8 @@ async function traduzir() {
 
     traducaoTexto.textContent = dados.responseData.translatedText  //pegando o texto traduzido e mostrando na tela
 
-    console.log(dados)
+}
 
+function ouvirVoz() {
+    console.log("funcionou?")
 }
