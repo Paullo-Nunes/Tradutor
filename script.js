@@ -54,7 +54,8 @@ function ouvirVoz() {
 
     //Avise-me quando terminar de transcrever a voz
     reconhecimentoVoz.onresult = (event) => {
-        console.log(event)
+        let textoTranscricao = event.results[0][0].transcript
+        console.log(textoTranscricao)
 
     }
 
