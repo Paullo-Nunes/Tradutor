@@ -44,5 +44,19 @@ async function traduzir() {
 }
 
 function ouvirVoz() {
-    console.log("funcionou?")
+
+    let speech = window.webkitSpeechRecognition //Ferramenta de transcrição de áudio
+
+    let reconhecimentoVoz = new speech() //Deixando ela pronta para uso
+
+    //configurando a ferramenta
+    reconhecimentoVoz.lang = "pt-BR"
+
+    //Avise-me quando terminar de transcrever a voz
+    reconhecimentoVoz.onresult = (event) => {
+        console.log(event)
+
+    }
+
+    reconhecimentoVoz.start()
 }
