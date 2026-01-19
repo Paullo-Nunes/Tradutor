@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,36 +8,38 @@
     <script src="script.js" defer></script>
     <title>Tradutor DevClub</title>
 </head>
+
 <body>
     <div class="caixa-maior">
-    <textarea name="texto" id="input-texto">
+        <textarea name="texto" id="input-texto">
 
     </textarea>
 
-    <div class="controle">
-    <select name="opcao" id="idioma">
-        <option value="en">Inglês</option>
-        <option value="es">Espanhol</option>
-        <option value="fr">Francês</option>
-        <option value="de">Alemão</option>
-        <option value="it">Italiano</option>
-        <option value="ja">Japonês</option>
-        
-    </select>
+        <div class="controle">
+            <select name="opcao" id="idioma">
+                <option value="en">Inglês</option>
+                <option value="es">Espanhol</option>
+                <option value="fr">Francês</option>
+                <option value="de">Alemão</option>
+                <option value="it">Italiano</option>
+                <option value="ja">Japonês</option>
 
-    <button onclick="traduzir()">
-        <img src="./assets/img/traduzir.svg" alt="símbolo de tradução">
-    </button>
-    <button>
-        <img src="./assets/img/microfone.svg" alt="microfone">
-    </button>
-    </div>
+            </select>
 
-    <div class="resultado">
-        <h3 class="titulo-traducao">Tradução</h3>
-        <p class="traducao">A tradução aparecerá aqui...</p>
-    </div>
+            <button onclick="traduzir()">
+                <img src="./assets/img/traduzir.svg" alt="símbolo de tradução">
+            </button>
+            <button>
+                <img src="./assets/img/microfone.svg" alt="microfone">
+            </button>
+        </div>
+
+        <div class="resultado">
+            <h3 class="titulo-traducao">Tradução</h3>
+            <p class="traducao">A tradução aparecerá aqui...</p>
+        </div>
 
     </div>
 </body>
+
 </html>
