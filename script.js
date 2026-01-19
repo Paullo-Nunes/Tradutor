@@ -27,7 +27,7 @@ let idioma = document.querySelector("#idioma")
 
 async function traduzir() {
     //endereço do servidor com o texto que quero traduzir
-    let endereco = "https://api.mymemory.translated.net/get?q=" + inputTexto.value + "&langpair=pt-BR|en"
+    let endereco = "https://api.mymemory.translated.net/get?q=" + inputTexto.value + "&langpair=pt-BR|" + idioma.value //pegando o valor do idioma
     //resposta do servidor
     let resposta = await fetch(endereco)
     //conversão da resposta para JSON
