@@ -58,7 +58,7 @@ function ouvirVoz() {
 
         inputTexto.textContent = textoTranscricao //pegando o texto falado e colocando no campo de texto area
 
-        console.log(textoTranscricao)
+        traduzir() //chamando a função para pegar o texto falado e colocar a tradução no campo de tradução do texto
 
     }
 
