@@ -23,6 +23,7 @@ Fetch -> ferramenta do javascript para entrar em contato com um servidor
 
 let inputTexto = document.querySelector("#input-texto")
 let traducaoTexto = document.querySelector(".traducao")
+let idioma = document.querySelector("#idioma")
 
 async function traduzir() {
     //endereço do servidor com o texto que quero traduzir
