@@ -1,8 +1,8 @@
 /* Primeiro passo:
-[] Saber quando o botão for clicado;
-[] Pegar o texto que o usuário digitou;
-[] Mandar para o servidor traduzir;
-[] Receber a resposta do servidor (tradução); 
+[x] Saber quando o botão for clicado;
+[x] Pegar o texto que o usuário digitou;
+[x] Mandar para o servidor traduzir;
+[x] Receber a resposta do servidor (tradução); 
 [] Colocar o texto na tela.
 
 Endereço da API de Tradução mymemory traslation
@@ -22,6 +22,7 @@ Fetch -> ferramenta do javascript para entrar em contato com um servidor
 */
 
 let inputTexto = document.querySelector("#input-texto")
+let traducaoTexto = document.querySelector(".traducao")
 
 async function traduzir() {
     //endereço do servidor com o texto que quero traduzir
@@ -31,8 +32,8 @@ async function traduzir() {
     //conversão da resposta para JSON
     let dados = await resposta.json() //convertendo a resposta em formato json
 
+    traducaoTexto.textContent = dados.responseData.translatedText  //pegando o texto traduzido e mostrando na tela
+
     console.log(dados)
-
-
 
 }
