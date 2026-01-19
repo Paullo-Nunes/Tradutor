@@ -55,6 +55,9 @@ function ouvirVoz() {
     //Avise-me quando terminar de transcrever a voz
     reconhecimentoVoz.onresult = (event) => {
         let textoTranscricao = event.results[0][0].transcript
+
+        inputTexto.textContent = textoTranscricao //pegando o texto falado e colocando no campo de texto area
+
         console.log(textoTranscricao)
 
     }
