@@ -42,7 +42,15 @@ body {
     padding: 10px;
     background-color: #ffffff1a;
     color: #fff;
+    appearance: none; /* retira o "v" de seleção do select */
 }
+
+option {
+    background-color: #000000f2;
+    border-radius: 20px;
+    border: none;
+}
+
 
 button {
     background-color: #ffffff1a;
