@@ -32,35 +32,61 @@ let traducaoTexto = document.querySelector(".traducao")
 let idioma = document.querySelector("#idioma")
 
 async function traduzir() {
-    //endereço do servidor com o texto que quero traduzir
-    let endereco = "https://api.mymemory.translated.net/get?q=" + inputTexto.value + "&langpair=pt-BR|" + idioma.value //pegando o valor do idioma
-    //resposta do servidor
-    let resposta = await fetch(endereco)
-    //conversão da resposta para JSON
-    let dados = await resposta.json() //convertendo a resposta em formato json
 
-    traducaoTexto.textContent = dados.responseData.translatedText  //pegando o texto traduzido e mostrando na tela
+    const texto = inputTexto.value.trim();
+
+    if (!texto) {
+        traducaoTexto.textContent = "Por favor, digite um texto para traduzir.";
+        return;
+    }
+
+    //endereço do servidor com o texto que quero traduzir
+    const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(texto)}&langpair=pt-BR|${encodeURIComponent(idioma.value)}`;//pegando o valor do idioma
+
+    //resposta do servidor
+    try {
+        const resposta = await fetch(url);
+        if (!resposta.ok) {
+            throw new Error(`Erro na requisição: ${resposta.status}`);
+        }
+
+        const dados = await resposta.json() //convertendo a resposta em formato json
+
+        const textoTraduzido = dados?.responseData?.translatedText || "Erro ao obter a tradução."; //pegando o texto traduzido
+        traducaoTexto.textContent = textoTraduzido;  //pegando o texto traduzido e mostrando na tela
+    } catch (erro) {
+        
+        traducaoTexto.textContent = "Ocorreu um erro ao tentar traduzir o texto. tente novamente.";
+    }
+
 
 }
 
 function ouvirVoz() {
 
-    let speech = window.webkitSpeechRecognition //Ferramenta de transcrição de áudio
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
-    let reconhecimentoVoz = new speech() //Deixando ela pronta para uso
-
-    //configurando a ferramenta
-    reconhecimentoVoz.lang = "pt-BR"
-
-    //Avise-me quando terminar de transcrever a voz
-    reconhecimentoVoz.onresult = (event) => {
-        let textoTranscricao = event.results[0][0].transcript
-
-        inputTexto.textContent = textoTranscricao //pegando o texto falado e colocando no campo de texto area
-
-        traduzir() //chamando a função para pegar o texto falado e colocar a tradução no campo de tradução do texto
-
+    if (!SpeechRecognition) {
+        alert("Seu navegador não suporta a API de reconhecimento de voz. Por favor, use um navegador compatível.");
+        return;
     }
 
-    reconhecimentoVoz.start()
+    const reconhecimentoVoz = new SpeechRecognition();
+    reconhecimentoVoz.lang = "pt-BR";
+
+    reconhecimentoVoz.onresult = (event) => {
+        const textoTranscricao = event.results[0][0].transcript;
+        inputTexto.value = textoTranscricao;
+        traduzir();
+    };
+
+    reconhecimentoVoz.onerror = (event) => {
+        alert("Ocorreu um erro no reconhecimento de voz: " + event.error);
+    }
+
+    reconhecimentoVoz.start();
 }
+
+        
+
+ 
